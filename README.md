@@ -27,16 +27,47 @@ brew install portaudio
 
 ## Usage
 
-Start live audio transcription from your microphone:
+### Live Audio Transcription (OpenAI Whisper)
+
+Start continuous live audio transcription from your microphone:
 
 ```bash
-uv run python transcribe.py
+uv run python whisper.py
 ```
 
-- The application will start recording from your default microphone
+- Uses OpenAI Whisper directly for high-quality transcription
+- Continuous recording with overlapping chunks for context
 - Transcribed text appears with timestamps
 - Say "stop" to end the recording session
 - Press Ctrl+C to interrupt manually
+
+### Speech Recognition with Whisper
+
+Alternative implementation using the speech_recognition library:
+
+```bash
+uv run python sr.py
+```
+
+Or specify a different Whisper model:
+
+```bash
+uv run python sr.py --model tiny    # Fastest
+uv run python sr.py --model large   # Most accurate
+```
+
+- Listens for speech in chunks (phrase-based)
+- Uses speech_recognition library with Whisper backend
+- Configurable Whisper model selection
+- Press Ctrl+C to exit
+
+### File Transcription Test
+
+Test transcription with the included JFK audio file:
+
+```bash
+uv run python speech_recognition_test.py
+```
 
 ## Configuration
 
