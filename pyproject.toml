@@ -11,4 +11,5 @@ dependencies = [
     "ruff>=0.12.11",
     "speechrecognition>=3.14.3",
     "soundfile>=0.13.1",
+    "openwakeword>=0.4.0",
 ]
